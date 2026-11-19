@@ -9,7 +9,7 @@ import Footer from "./sections/footer/Footer";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Hero />
       <About />
       <Skills />
@@ -19,6 +19,6 @@ export default function Home() {
       <Contact />
       {/* PREMIUM FOOTER */}
       <Footer />
-    </div>
+    </main>
   );
 }

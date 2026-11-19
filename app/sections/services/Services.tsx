@@ -53,7 +53,7 @@ export default function Services() {
                 </li>
                 <li>
                   <Icon icon="solar:check-circle-bold" />
-                  Custom Full-Stack Development
+                  Full-Stack Performance & Scalability
                 </li>
                 <li>
                   <Icon icon="solar:check-circle-bold" />
@@ -65,7 +65,7 @@ export default function Services() {
                 </li>
                 <li>
                   <Icon icon="solar:check-circle-bold" />
-                  Full-Stack Performance & Scalability
+                  Deployment & Maintenance
                 </li>
               </ul>
             </div>

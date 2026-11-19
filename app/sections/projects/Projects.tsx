@@ -16,7 +16,7 @@ export default function Projects() {
           </span>
 
           <h2 className="section-title">
-            Featured <span className="gradient-text">Projects</span>
+            Featured <span className="gradient-text">Latest</span> Projects
           </h2>
 
           <p className="section-description">

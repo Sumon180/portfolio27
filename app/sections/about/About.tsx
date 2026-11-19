@@ -17,7 +17,7 @@ export default function About() {
             </span>
 
             <h2 className="section-title">
-              About <span className="gradient-text">Me</span>
+              More About <span className="gradient-text">Me</span>
             </h2>
 
             <p className="section-heading-description">

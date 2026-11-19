@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import "./footer.css";
@@ -14,17 +13,16 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="site-footer">
-      <div className="footer-glow"></div>
+    <footer className="site-footer" id="footer">
+      <div className="footer-glow" />
 
       <div className="container">
-        {/* Footer Main */}
         <div className="footer-main">
           {/* Brand */}
           <div className="footer-brand">
             <Link href="#home" className="footer-logo">
               Sumon<span>.dev</span>
-              <span className="footer-logo-dot"></span>
+              <span className="footer-logo-dot" />
             </Link>
 
             <p className="footer-description">
@@ -34,37 +32,29 @@ export default function Footer() {
             </p>
 
             <div className="footer-availability">
-              <span className="availability-dot"></span>
+              <span className="availability-dot" />
               Available for new opportunities
             </div>
           </div>
 
-          {/* Quick Navigation */}
+          {/* Quick Links */}
           <div className="footer-column">
             <h3>Quick Links</h3>
 
             <ul className="footer-nav">
-              <li>
-                <Link href="#home">Home</Link>
-              </li>
-              <li>
-                <Link href="#about">About Me</Link>
-              </li>
-              <li>
-                <Link href="#skills">My Skills</Link>
-              </li>
-              <li>
-                <Link href="#services">Services</Link>
-              </li>
-              <li>
-                <Link href="#projects">Projects</Link>
-              </li>
-              <li>
-                <Link href="#testimonials">Testimonials</Link>
-              </li>
-              <li>
-                <Link href="#contact">Contact</Link>
-              </li>
+              {[
+                ["Home", "#home"],
+                ["About Me", "#about"],
+                ["My Skills", "#skills"],
+                ["Services", "#services"],
+                ["Projects", "#projects"],
+                ["Testimonials", "#testimonials"],
+                ["Contact", "#contact"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href}>{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -73,18 +63,16 @@ export default function Footer() {
             <h3>What I Do</h3>
 
             <ul className="footer-nav">
-              <li>
-                <Link href="#services">Website Development</Link>
-              </li>
-              <li>
-                <Link href="#services">Landing Pages</Link>
-              </li>
-              <li>
-                <Link href="#services">Frontend Development</Link>
-              </li>
-              <li>
-                <Link href="#services">Backend Development</Link>
-              </li>
+              {[
+                "Website Development",
+                "Landing Pages",
+                "Frontend Development",
+                "Backend Development",
+              ].map((service) => (
+                <li key={service}>
+                  <Link href="#services">{service}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -142,8 +130,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Divider */}
-        <div className="footer-divider"></div>
+        <div className="footer-divider" />
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
@@ -156,7 +143,7 @@ export default function Footer() {
           </p>
 
           <p className="footer-made-with">
-            Designed &amp; Built with
+            Designed & Built with
             <Icon icon="solar:heart-bold" />
             by <span>Sumon Hossain</span>
           </p>

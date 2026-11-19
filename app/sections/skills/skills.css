@@ -1,12 +1,4 @@
 
-.skills-section .container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-}
-
 .section-header {
   max-width: 680px;
   margin: 0 auto 65px;
@@ -65,7 +57,6 @@
   --skill-cyan: #22d3ee;
   --skill-purple: #a78bfa;
 
-  padding: 110px 0;
   background: var(--skill-bg);
   color: #f8fafc;
   overflow: hidden;
@@ -322,9 +313,7 @@
 }
 
 @media (max-width: 600px) {
-  .skills-section {
-    padding: 75px 0;
-  }
+ 
 
   .skills-header {
     margin-bottom: 35px;

@@ -1,7 +1,97 @@
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+
 import Reveal from "@/app/components/Reveal";
 import "./skills.css";
+
+const skillGroups = [
+  {
+    title: "Frontend Development",
+    description: "Building beautiful user interfaces",
+    icon: "solar:code-square-bold-duotone",
+    style: "",
+    technologies: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Redux",
+    ],
+  },
+  {
+    title: "Backend Development",
+    description: "Creating reliable application systems",
+    icon: "solar:server-square-bold-duotone",
+    style: "purple",
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "Firebase",
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma ORM",
+      "REST API",
+      "Authentication",
+    ],
+  },
+  {
+    title: "Tools & Workflow",
+    description: "Tools that power my development process",
+    icon: "solar:widget-5-bold-duotone",
+    style: "pink",
+    technologies: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Postman",
+      "Vercel",
+      "Netlify",
+      "npm",
+    ],
+  },
+];
+
+const learningGroups = [
+  {
+    label: "CURRENTLY LEARNING",
+    items: [
+      {
+        name: "Docker",
+        description: "Containerization & deployment",
+        active: true,
+      },
+      {
+        name: "Redis",
+        description: "Caching & data storage",
+        active: true,
+      },
+    ],
+  },
+  {
+    label: "UP NEXT",
+    items: [
+      {
+        name: "GraphQL",
+        description: "Modern API development",
+        active: false,
+      },
+      {
+        name: "AWS",
+        description: "Cloud infrastructure",
+        active: false,
+      },
+      {
+        name: "CI/CD",
+        description: "Automated testing & deployment",
+        active: false,
+      },
+    ],
+  },
+];
 
 export default function Skills() {
   return (
@@ -11,7 +101,7 @@ export default function Skills() {
         <Reveal>
           <div className="section-header">
             <span className="section-subtitle">
-              <span className="subtitle-line"></span>
+              <span className="subtitle-line" />
               MY EXPERTISE
             </span>
 
@@ -29,164 +119,31 @@ export default function Skills() {
         <div className="skills-layout">
           {/* MAIN SKILLS */}
           <div className="skills-main">
-            {/* FRONTEND DEVELOPMENT */}
-            <Reveal>
-              <div className="skills-card">
-                <div className="card-heading">
-                  <span className="card-icon">
-                    <Icon
-                      className="size-12"
-                      icon="solar:code-square-bold-duotone"
-                    />
-                  </span>
+            {skillGroups.map((group) => (
+              <Reveal key={group.title}>
+                <div className="skills-card">
+                  <div className="card-heading">
+                    <span className={`card-icon ${group.style}`}>
+                      <Icon className="size-12" icon={group.icon} />
+                    </span>
 
-                  <div>
-                    <h3>Frontend Development</h3>
-                    <p>Building beautiful user interfaces</p>
+                    <div>
+                      <h3>{group.title}</h3>
+                      <p>{group.description}</p>
+                    </div>
+                  </div>
+
+                  <div className="tech-grid flex flex-wrap gap-5">
+                    {group.technologies.map((technology) => (
+                      <span className="tech-item" key={technology}>
+                        <span className="tech-dot" />
+                        {technology}
+                      </span>
+                    ))}
                   </div>
                 </div>
-
-                <div className="tech-grid flex flex-wrap gap-5">
-                  <div className="tech-item">
-                    <span>HTML5</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>CSS3</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>JavaScript</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>TypeScript</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>React</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Next.js</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Tailwind CSS</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Redux</span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* BACKEND DEVELOPMENT */}
-            <Reveal>
-              <div className="skills-card">
-                <div className="card-heading">
-                  <span className="card-icon purple">
-                    <Icon
-                      className="size-12"
-                      icon="solar:server-square-bold-duotone"
-                    />
-                  </span>
-
-                  <div>
-                    <h3>Backend Development</h3>
-                    <p>Creating reliable application systems</p>
-                  </div>
-                </div>
-
-                <div className="tech-grid flex flex-wrap gap-5">
-                  <div className="tech-item">
-                    <span>Node.js</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Express.js</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Firebase</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>MySQL</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>PostgreSQL</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>MongoDB</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Prisma ORM</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>REST API</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Authentication</span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* TOOLS & WORKFLOW */}
-            <Reveal>
-              <div className="skills-card">
-                <div className="card-heading">
-                  <span className="card-icon pink">
-                    <Icon
-                      className="size-12"
-                      icon="solar:widget-5-bold-duotone"
-                    />
-                  </span>
-
-                  <div>
-                    <h3>Tools & Workflow</h3>
-                    <p>Tools that power my development process</p>
-                  </div>
-                </div>
-
-                <div className="tech-grid flex flex-wrap gap-5">
-                  <div className="tech-item">
-                    <span>Git</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>GitHub</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>VS Code</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Postman</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Vercel</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>Netlify</span>
-                  </div>
-
-                  <div className="tech-item">
-                    <span>npm</span>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            ))}
           </div>
 
           {/* LEARNING ROADMAP */}
@@ -201,66 +158,34 @@ export default function Skills() {
                 </div>
               </div>
 
-              {/* CURRENTLY LEARNING */}
-              <div className="learning-group">
-                <span className="learning-label">CURRENTLY LEARNING</span>
+              {learningGroups.map((group, index) => (
+                <div key={group.label}>
+                  {index > 0 && <div className="learning-divider" />}
 
-                <div className="learning-item">
-                  <span className="learning-dot active"></span>
+                  <div className="learning-group">
+                    <span className="learning-label">{group.label}</span>
 
-                  <div>
-                    <h4>Docker</h4>
-                    <p>Containerization & deployment</p>
-                  </div>
+                    {group.items.map((item) => (
+                      <div className="learning-item" key={item.name}>
+                        <span
+                          className={`learning-dot ${
+                            item.active ? "active" : "upcoming"
+                          }`}
+                        />
 
-                  <span className="learning-status">Learning</span>
-                </div>
+                        <div>
+                          <h4>{item.name}</h4>
+                          <p>{item.description}</p>
+                        </div>
 
-                <div className="learning-item">
-                  <span className="learning-dot active"></span>
-
-                  <div>
-                    <h4>Redis</h4>
-                    <p>Caching & data storage</p>
-                  </div>
-
-                  <span className="learning-status">Learning</span>
-                </div>
-              </div>
-
-              <div className="learning-divider"></div>
-
-              {/* UP NEXT */}
-              <div className="learning-group">
-                <span className="learning-label">UP NEXT</span>
-
-                <div className="learning-item">
-                  <span className="learning-dot upcoming"></span>
-
-                  <div>
-                    <h4>GraphQL</h4>
-                    <p>Modern API development</p>
+                        {item.active && (
+                          <span className="learning-status">Learning</span>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
-
-                <div className="learning-item">
-                  <span className="learning-dot upcoming"></span>
-
-                  <div>
-                    <h4>AWS</h4>
-                    <p>Cloud infrastructure</p>
-                  </div>
-                </div>
-
-                <div className="learning-item">
-                  <span className="learning-dot upcoming"></span>
-
-                  <div>
-                    <h4>CI/CD</h4>
-                    <p>Automated testing & deployment</p>
-                  </div>
-                </div>
-              </div>
+              ))}
 
               <div className="learning-footer">
                 <span>Always learning.</span>

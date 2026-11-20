@@ -1,17 +1,11 @@
 import { Icon } from "@iconify/react";
 import "./hero.css";
-import Image from "next/image";
 
 const Hero = () => {
   return (
     <section id="hero" className="section hero-section">
       {/* BACKGROUND EFFECTS */}
-      <div className="hero-background">
-        <div className="grid-overlay" />
-        <div className="ambient-glow glow-one" />
-        <div className="ambient-glow glow-two" />
-        <div className="ambient-glow glow-three" />
-      </div>
+      <div className="grid-overlay" />
 
       <div className="hero-content">
         {/* LEFT CONTENT */}
@@ -41,15 +35,6 @@ const Hero = () => {
             your vision into something extraordinary.
           </p>
 
-          {/* TECH STACK */}
-          <div className="hero-tech-stack">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>TypeScript</span>
-            <span>React</span>
-            <span>Node.js</span>
-          </div>
-
           {/* CTA BUTTONS */}
           <div className="hero-actions">
             <a href="#projects" className="hero-btn primary-btn magnetic-btn">
@@ -65,8 +50,6 @@ const Hero = () => {
 
           {/* SOCIAL LINKS */}
           <div className="hero-socials">
-            <span className="social-label">FOLLOW ME</span>
-
             <a
               href="https://github.com/Sumon180"
               target="_blank"
@@ -170,16 +153,6 @@ const Hero = () => {
               <span>Ln 07, Col 02</span>
             </div>
           </div>
-
-          {/* PROFILE IMAGE */}
-          <Image
-            src="/images/hero-server.png"
-            alt="Sumon Hossain - Creative Web Developer"
-            width={700}
-            height={700}
-            priority
-            className="hero-profile-image"
-          />
 
           {/* FLOATING CARD 1 */}
           <div className="floating-card floating-card-top">

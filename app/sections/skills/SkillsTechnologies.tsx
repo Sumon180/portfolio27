@@ -34,7 +34,10 @@ export default function Skills() {
               <div className="skills-card">
                 <div className="card-heading">
                   <span className="card-icon">
-                    <Icon icon="solar:code-square-bold-duotone" />
+                    <Icon
+                      className="size-12"
+                      icon="solar:code-square-bold-duotone"
+                    />
                   </span>
 
                   <div>
@@ -43,44 +46,36 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className="tech-grid">
+                <div className="tech-grid flex flex-wrap gap-5">
                   <div className="tech-item">
-                    <Icon icon="skill-icons:html" />
                     <span>HTML5</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:css" />
                     <span>CSS3</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:javascript" />
                     <span>JavaScript</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:typescript" />
                     <span>TypeScript</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:react-dark" />
                     <span>React</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:nextjs-dark" />
                     <span>Next.js</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:tailwindcss-dark" />
                     <span>Tailwind CSS</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:redux" />
                     <span>Redux</span>
                   </div>
                 </div>
@@ -92,7 +87,10 @@ export default function Skills() {
               <div className="skills-card">
                 <div className="card-heading">
                   <span className="card-icon purple">
-                    <Icon icon="solar:server-square-bold-duotone" />
+                    <Icon
+                      className="size-12"
+                      icon="solar:server-square-bold-duotone"
+                    />
                   </span>
 
                   <div>
@@ -101,49 +99,40 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className="tech-grid">
+                <div className="tech-grid flex flex-wrap gap-5">
                   <div className="tech-item">
-                    <Icon icon="skill-icons:nodejs-dark" />
                     <span>Node.js</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:expressjs-dark" />
                     <span>Express.js</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="devicon:firebase" />
                     <span>Firebase</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="devicon:mysql-wordmark" />
                     <span>MySQL</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="devicon:postgresql" />
                     <span>PostgreSQL</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:mongodb" />
                     <span>MongoDB</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:prisma" />
                     <span>Prisma ORM</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="solar:code-square-bold-duotone" />
                     <span>REST API</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="solar:shield-check-bold-duotone" />
                     <span>Authentication</span>
                   </div>
                 </div>
@@ -155,7 +144,10 @@ export default function Skills() {
               <div className="skills-card">
                 <div className="card-heading">
                   <span className="card-icon pink">
-                    <Icon icon="solar:widget-5-bold-duotone" />
+                    <Icon
+                      className="size-12"
+                      icon="solar:widget-5-bold-duotone"
+                    />
                   </span>
 
                   <div>
@@ -164,39 +156,32 @@ export default function Skills() {
                   </div>
                 </div>
 
-                <div className="tech-grid">
+                <div className="tech-grid flex flex-wrap gap-5">
                   <div className="tech-item">
-                    <Icon icon="skill-icons:git" />
                     <span>Git</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:github-dark" />
                     <span>GitHub</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:vscode-dark" />
                     <span>VS Code</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="simple-icons:postman" />
                     <span>Postman</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="simple-icons:vercel" />
                     <span>Vercel</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="skill-icons:netlify-dark" />
                     <span>Netlify</span>
                   </div>
 
                   <div className="tech-item">
-                    <Icon icon="simple-icons:npm" />
                     <span>npm</span>
                   </div>
                 </div>

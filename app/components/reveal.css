@@ -1,6 +1,5 @@
 
-/* .reveal {
-  opacity: 0;
+.reveal {
   transform: translateY(35px);
 
   transition:
@@ -9,15 +8,13 @@
 }
 
 .reveal.visible {
-  opacity: 1;
   transform: translateY(0);
-} */
+}
 
 /* Accessibility */
-/* @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   .reveal {
-    opacity: 1;
     transform: none;
     transition: none;
   }
-} */
+}

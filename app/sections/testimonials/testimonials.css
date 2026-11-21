@@ -1,3 +1,13 @@
+.testimonials-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 125px 7% 90px;
+}
+
 
 .testimonials-section::before {
   content: "";

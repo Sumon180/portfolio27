@@ -1,10 +1,123 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Reveal from "@/app/components/Reveal";
 import "./about.css";
 
+const stats = [
+  {
+    id: "projects",
+    icon: "solar:code-bold",
+    target: 10,
+    suffix: "+",
+    label: "Projects Built",
+  },
+  {
+    id: "technologies",
+    icon: "solar:layers-bold",
+    target: 15,
+    suffix: "+",
+    label: "Technologies",
+  },
+  {
+    id: "commitment",
+    icon: "solar:users-group-rounded-bold",
+    target: 100,
+    suffix: "%",
+    label: "Commitment",
+  },
+  {
+    id: "passion",
+    icon: "solar:heart-bold",
+    target: 100,
+    suffix: "%",
+    label: "Passion for Coding",
+  },
+];
+
+const details = [
+  { label: "Name", value: "Sumon Hossain" },
+  { label: "Profession", value: "Full-Stack Web Developer" },
+  { label: "Location", value: "Bangladesh" },
+];
+
+function Counter({
+  target,
+  suffix,
+  start,
+}: {
+  target: number;
+  suffix: string;
+  start: boolean;
+}) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+
+    let frameId: number;
+    const duration = 1800;
+    let startTime: number | null = null;
+
+    const animate = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp;
+
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+
+      // Ease-out animation
+      const easedProgress = 1 - Math.pow(1 - progress, 4);
+
+      setCount(Math.floor(easedProgress * target));
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(animate);
+      } else {
+        setCount(target);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(frameId);
+  }, [start, target]);
+
+  return (
+    <>
+      {count}
+      {suffix}
+    </>
+  );
+}
+
 export default function About() {
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [startCounters, setStartCounters] = useState(false);
+
+  useEffect(() => {
+    const element = statsRef.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCounters(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.25,
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="about" className="section about-section">
       <div className="about-container">
@@ -12,7 +125,7 @@ export default function About() {
         <Reveal>
           <div className="about-header">
             <span className="section-subtitle">
-              <span className="subtitle-line"></span>
+              <span className="subtitle-line" />
               GET TO KNOW ME
             </span>
 
@@ -29,10 +142,10 @@ export default function About() {
         <div className="about-content">
           {/* LEFT SIDE: IMAGE */}
           <Reveal className="about-visual">
-            <div className="about-image-glow"></div>
+            <div className="about-image-glow" />
 
             <div className="about-image-wrapper">
-              <div className="about-image-border"></div>
+              <div className="about-image-border" />
 
               <Image
                 src="/images/profile.png"
@@ -57,8 +170,8 @@ export default function About() {
             </div>
 
             {/* DECORATIVE ELEMENTS */}
-            <div className="about-decoration decoration-one"></div>
-            <div className="about-decoration decoration-two"></div>
+            <div className="about-decoration decoration-one" />
+            <div className="about-decoration decoration-two" />
           </Reveal>
 
           {/* RIGHT SIDE: CONTENT */}
@@ -78,9 +191,9 @@ export default function About() {
             </p>
 
             <p>
-              I specialize in building modern, responsive websites using HTML,
-              CSS, JavaScript and React. I also explore Firebase and Solidity to
-              expand my development capabilities.
+              I specialize in building modern, responsive web applications using
+              React, Next.js, TypeScript and Node.js. I also work with databases
+              and backend technologies to build complete solutions.
             </p>
 
             <p>
@@ -91,25 +204,18 @@ export default function About() {
 
             {/* PERSONAL DETAILS */}
             <div className="about-details">
-              <div className="detail-item">
-                <span className="detail-label">Name</span>
-                <strong>Sumon Hossain</strong>
-              </div>
-
-              <div className="detail-item">
-                <span className="detail-label">Profession</span>
-                <strong>Web Developer</strong>
-              </div>
-
-              <div className="detail-item">
-                <span className="detail-label">Location</span>
-                <strong>Bangladesh</strong>
-              </div>
+              {details.map((detail) => (
+                <div className="detail-item" key={detail.label}>
+                  <span className="detail-label">{detail.label}</span>
+                  <strong>{detail.value}</strong>
+                </div>
+              ))}
 
               <div className="detail-item">
                 <span className="detail-label">Availability</span>
                 <strong className="available-text">
-                  <span></span> Open to Work
+                  <span />
+                  Open to Work
                 </strong>
               </div>
             </div>
@@ -135,68 +241,24 @@ export default function About() {
 
         {/* STATISTICS */}
         <Reveal className="about-stats">
-          {/* PROJECTS BUILT */}
-          <div className="stat-card">
-            <div className="stat-icon">
-              <Icon icon="solar:code-bold" />
-            </div>
+          <div className="about-stats-grid" ref={statsRef}>
+            {stats.map((stat) => (
+              <div className="stat-card" key={stat.id}>
+                <div className="stat-icon">
+                  <Icon icon={stat.icon} />
+                </div>
 
-            <h3>
-              <span className="counter" data-target="10">
-                0
-              </span>
-              <span>+</span>
-            </h3>
+                <h3>
+                  <Counter
+                    target={stat.target}
+                    suffix={stat.suffix}
+                    start={startCounters}
+                  />
+                </h3>
 
-            <p>Projects Built</p>
-          </div>
-
-          {/* TECHNOLOGIES */}
-          <div className="stat-card">
-            <div className="stat-icon">
-              <Icon icon="solar:layers-bold" />
-            </div>
-
-            <h3>
-              <span className="counter" data-target="6">
-                0
-              </span>
-              <span>+</span>
-            </h3>
-
-            <p>Technologies</p>
-          </div>
-
-          {/* COMMITMENT */}
-          <div className="stat-card">
-            <div className="stat-icon">
-              <Icon icon="solar:users-group-rounded-bold" />
-            </div>
-
-            <h3>
-              <span className="counter" data-target="100">
-                0
-              </span>
-              <span>%</span>
-            </h3>
-
-            <p>Commitment</p>
-          </div>
-
-          {/* PASSION */}
-          <div className="stat-card">
-            <div className="stat-icon">
-              <Icon icon="solar:heart-bold" />
-            </div>
-
-            <h3>
-              <span className="counter" data-target="100">
-                0
-              </span>
-              <span>%</span>
-            </h3>
-
-            <p>Passion for Coding</p>
+                <p>{stat.label}</p>
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>

@@ -56,18 +56,6 @@ button {
   font: inherit;
 }
 
-/* ALL SECTIONS */
-.section {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-  padding: 125px 7% 90px;
-}
-
 /* GLOBAL SELECTION */
 ::selection {
   background: var(--purple);

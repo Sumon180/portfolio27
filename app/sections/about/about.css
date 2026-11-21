@@ -1,5 +1,27 @@
 
-/* SECTION HEADER */
+/* ========================================
+   ABOUT SECTION
+======================================== */
+
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 125px 7% 90px;
+}
+
+.about-container {
+  max-width: 1540px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========================================
+   SECTION HEADER
+======================================== */
 
 .about-header {
   text-align: center;
@@ -36,7 +58,9 @@
   line-height: 1.8;
 }
 
-/* ABOUT CONTENT */
+/* ========================================
+   ABOUT CONTENT
+======================================== */
 
 .about-content {
   display: grid;
@@ -45,7 +69,9 @@
   gap: 85px;
 }
 
-/* IMAGE SIDE */
+/* ========================================
+   IMAGE SIDE
+======================================== */
 
 .about-visual {
   position: relative;
@@ -63,6 +89,7 @@
   background: #00d9ff;
   filter: blur(120px);
   opacity: 0.13;
+  pointer-events: none;
 }
 
 .about-image-wrapper {
@@ -88,6 +115,7 @@
 }
 
 .about-profile-image {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -97,31 +125,29 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-/* EXPERIENCE CARD */
+/* ========================================
+   EXPERIENCE CARD
+======================================== */
 
 .about-experience-card {
   position: absolute;
   right: -15px;
   bottom: 35px;
   z-index: 3;
-
   display: flex;
   align-items: center;
   gap: 12px;
-
   padding: 15px 18px;
   border: 1px solid rgba(0, 217, 255, 0.2);
   border-radius: 12px;
-
   background: rgba(17, 29, 48, 0.95);
   backdrop-filter: blur(15px);
-
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-
   animation: aboutFloat 4s ease-in-out infinite;
 }
 
 .experience-icon {
+  flex-shrink: 0;
   width: 42px;
   height: 42px;
   display: flex;
@@ -146,7 +172,9 @@
   margin-top: 5px;
 }
 
-/* DECORATIONS */
+/* ========================================
+   DECORATIONS
+======================================== */
 
 .about-decoration {
   position: absolute;
@@ -170,10 +198,13 @@
   border-color: rgba(0, 217, 255, 0.4);
 }
 
-/* RIGHT CONTENT */
+/* ========================================
+   RIGHT CONTENT
+======================================== */
 
 .about-info {
   position: relative;
+  min-width: 0;
 }
 
 .about-greeting {
@@ -205,16 +236,16 @@
   margin-bottom: 15px;
 }
 
-/* PERSONAL DETAILS */
+/* ========================================
+   PERSONAL DETAILS
+======================================== */
 
 .about-details {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px 25px;
-
   padding: 25px 0;
   margin: 15px 0 25px;
-
   border-top: 1px solid rgba(130, 160, 200, 0.12);
   border-bottom: 1px solid rgba(130, 160, 200, 0.12);
 }
@@ -223,6 +254,7 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
+  min-width: 0;
 }
 
 .detail-label {
@@ -237,6 +269,7 @@
   color: #e4edf9;
   font-size: 12px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .available-text {
@@ -246,6 +279,7 @@
 }
 
 .available-text span {
+  flex-shrink: 0;
   width: 7px;
   height: 7px;
   background: #00e6a0;
@@ -253,7 +287,9 @@
   box-shadow: 0 0 10px #00e6a0;
 }
 
-/* BUTTONS */
+/* ========================================
+   ACTION BUTTONS
+======================================== */
 
 .about-actions {
   display: flex;
@@ -266,18 +302,17 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   padding: 14px 19px;
   border-radius: 9px;
-
   font-size: 12px;
   font-weight: 700;
-
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.about-btn iconify-icon {
-  font-size: 18px;
+.about-btn svg {
+  width: 18px;
+  height: 18px;
 }
 
 .about-primary-btn {
@@ -304,159 +339,156 @@
 }
 
 /* ========================================
-   STATISTICS
+   STATISTICS SECTION
 ======================================== */
 
 .about-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  width: 100%;
   margin-top: 85px;
+}
+
+/* Inner grid from About.tsx */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ========================================
+   STAT CARD
+======================================== */
+
+@property --stat-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .stat-card {
   position: relative;
-  padding: 27px 20px;
-  text-align: center;
-
-  border: 1px solid rgba(130, 160, 200, 0.13);
-  border-radius: 13px;
-
-  background: linear-gradient(
-    145deg,
-    rgba(19, 33, 54, 0.85),
-    rgba(12, 21, 36, 0.9)
-  );
-
-  transition: all 0.35s ease;
-  overflow: hidden;
-}
-
-.about-stats .stat-card {
-  position: relative;
   isolation: isolate;
   overflow: hidden;
-  z-index: 1;
-
+  min-width: 0;
+  padding: 27px 20px;
+  text-align: center;
   border: 1px solid rgba(130, 160, 200, 0.13);
-  border-radius: 12px;
-
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
-}
-
-/* Animated gradient border */
-.about-stats .stat-card::before {
-  content: "";
-  position: absolute;
-  inset: -100%;
-  z-index: -2;
-
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 240deg,
-    #00d9ff 280deg,
-    #8b5cf6 320deg,
-    transparent 360deg
-  );
-
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-/* Inner card background */
-.about-stats .stat-card::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  z-index: -1;
-
+  border-radius: 13px;
   background: linear-gradient(
     145deg,
     #132136,
     #0c1524
   );
-
-  border-radius: 12px;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-/* Hover animation */
-.about-stats .stat-card:hover {
+/* Animated gradient border */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 1.5px;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: conic-gradient(
+    from var(--stat-border-angle),
+    transparent 0deg,
+    transparent 240deg,
+    #00d9ff 280deg,
+    #8b5cf6 320deg,
+    #00d9ff 350deg,
+    transparent 360deg
+  );
+
+  opacity: 0;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition: opacity 0.3s ease;
+}
+
+/* Keep card content above the border */
+.stat-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.stat-card:hover {
   transform: translateY(-8px);
-
   border-color: transparent;
-
   box-shadow:
     0 12px 35px rgba(0, 217, 255, 0.12),
     0 0 20px rgba(139, 92, 246, 0.08);
 }
 
-.about-stats .stat-card:hover::before {
+.stat-card:hover::before {
   opacity: 1;
-  animation: statBorderRotate 6s linear infinite;
+  animation: statBorderRotate 4s linear infinite;
 }
 
-/* Border rotation */
 @keyframes statBorderRotate {
-  from {
-    transform: rotate(0deg);
-  }
-
   to {
-    transform: rotate(360deg);
+    --stat-border-angle: 360deg;
   }
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .about-stats .stat-card,
-  .about-stats .stat-card::before {
-    animation: none !important;
-    transition: none !important;
-  }
-}
+/* ========================================
+   STAT ICON
+======================================== */
 
 .stat-icon {
   width: 44px;
   height: 44px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin: 0 auto 15px;
-
   border-radius: 11px;
   background: rgba(0, 217, 255, 0.08);
-
   color: #00d9ff;
   font-size: 22px;
 }
 
+.stat-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* ========================================
+   COUNTER
+======================================== */
+
 .stat-card h3 {
   font-size: 32px;
   font-weight: 800;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.stat-card h3 span:last-child {
   color: #00d9ff;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
 }
 
 .stat-card p {
   color: #8594aa;
   font-size: 11px;
   font-weight: 500;
+  line-height: 1.6;
 }
 
-/* ANIMATION */
+/* ========================================
+   FLOAT ANIMATION
+======================================== */
 
 @keyframes aboutFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -469,8 +501,7 @@
    RESPONSIVE DESIGN
 ======================================== */
 
-@media (max-width: 1000px) {
-
+@media (max-width: 1100px) {
   .about-content {
     gap: 45px;
   }
@@ -484,13 +515,12 @@
     right: -5px;
   }
 
-  .about-stats {
+  .about-stats-grid {
     gap: 14px;
   }
 }
 
 @media (max-width: 800px) {
-
   .about-section {
     padding: 90px 6%;
   }
@@ -526,12 +556,14 @@
 
   .about-stats {
     margin-top: 60px;
-    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-
   .about-section {
     padding: 75px 5%;
   }
@@ -598,8 +630,11 @@
   }
 
   .about-stats {
-    gap: 12px;
     margin-top: 50px;
+  }
+
+  .about-stats-grid {
+    gap: 12px;
   }
 
   .stat-card {
@@ -612,5 +647,18 @@
 
   .stat-card p {
     font-size: 10px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-experience-card,
+  .stat-card,
+  .stat-card::before {
+    animation: none !important;
+    transition: none !important;
   }
 }

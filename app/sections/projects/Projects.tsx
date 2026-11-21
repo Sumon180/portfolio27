@@ -4,6 +4,48 @@ import { Icon } from "@iconify/react";
 import "./projects.css";
 import Reveal from "@/app/components/Reveal";
 
+const projects = [
+  {
+    id: 1,
+    type: "Web Development",
+    title: "Personal Portfolio Website",
+    description:
+      "A modern, responsive portfolio website featuring smooth animations, interactive elements, and a clean user interface.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85",
+    imageAlt: "Analytics dashboard project preview",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://your-live-demo.com",
+    githubUrl: "https://github.com/your-username/portfolio",
+  },
+  {
+    id: 2,
+    type: "Frontend Development",
+    title: "E-commerce Dashboard",
+    description:
+      "A sleek dashboard interface with product management, interactive components, and a responsive layout.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
+    imageAlt: "Business website project preview",
+    technologies: ["React", "Tailwind CSS", "JavaScript"],
+    liveUrl: "https://your-live-demo.com",
+    githubUrl: "https://github.com/your-username/ecommerce-dashboard",
+  },
+  {
+    id: 3,
+    type: "Full-Stack Development",
+    title: "Firebase Web Application",
+    description:
+      "A dynamic web application with user authentication, database integration, and a smooth user experience.",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
+    imageAlt: "Firebase web application preview",
+    technologies: ["JavaScript", "Firebase", "CSS"],
+    liveUrl: "https://your-live-demo.com",
+    githubUrl: "https://github.com/your-username/firebase-app",
+  },
+];
+
 export default function Projects() {
   return (
     <section id="projects" className="section projects-section">
@@ -27,206 +69,80 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="projects-grid">
-          {/* Project 01 */}
-          <Reveal className="project-card">
-            <div className="project-image">
-              <Image
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85"
-                alt="Analytics dashboard project preview"
-                width={1000}
-                height={650}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+          {projects.map((project) => (
+            <Reveal className="project-card" key={project.id}>
+              {/* Project Image */}
+              <div className="project-image">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width={1000}
+                  height={650}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
 
-              <div className="project-image-overlay">
-                <span>01 / Featured Project</span>
-                <a
-                  href="https://your-live-demo.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Preview portfolio project"
-                >
-                  <Icon icon="mdi:open-in-new" />
-                </a>
-              </div>
-            </div>
+                <div className="project-image-overlay">
+                  <span>
+                    {String(project.id).padStart(2, "0")} / Featured Project
+                  </span>
 
-            <div className="project-content">
-              <div className="project-meta">
-                <span className="project-type">Web Development</span>
-                <span className="project-number">01</span>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Preview ${project.title}`}
+                  >
+                    <Icon icon="mdi:open-in-new" />
+                  </a>
+                </div>
               </div>
 
-              <h3>Personal Portfolio Website</h3>
+              {/* Project Content */}
+              <div className="project-content">
+                <div className="project-meta">
+                  <span className="project-type">{project.type}</span>
 
-              <p>
-                A modern, responsive portfolio website featuring smooth
-                animations, interactive elements, and a clean user interface.
-              </p>
+                  <span className="project-number">
+                    {String(project.id).padStart(2, "0")}
+                  </span>
+                </div>
 
-              <div className="project-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
+                <h3>{project.title}</h3>
+
+                <p>{project.description}</p>
+
+                {/* Technologies */}
+                <div className="project-tags">
+                  {project.technologies.map((technology) => (
+                    <span key={technology}>{technology}</span>
+                  ))}
+                </div>
+
+                {/* Project Actions */}
+                <div className="project-actions">
+                  <a
+                    href={project.liveUrl}
+                    className="project-btn project-btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                    <Icon icon="mdi:open-in-new" />
+                  </a>
+
+                  <a
+                    href={project.githubUrl}
+                    className="project-btn project-btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon icon="mdi:github" />
+                    GitHub
+                  </a>
+                </div>
               </div>
-
-              <div className="project-actions">
-                <a
-                  href="https://your-live-demo.com"
-                  className="project-btn project-btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo
-                  <Icon icon="mdi:open-in-new" />
-                </a>
-
-                <a
-                  href="https://github.com/your-username/portfolio"
-                  className="project-btn project-btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon icon="mdi:github" />
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Project 02 */}
-          <Reveal className="project-card">
-            <div className="project-image">
-              <Image
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
-                alt="Business website project preview"
-                width={1000}
-                height={650}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-
-              <div className="project-image-overlay">
-                <span>02 / Featured Project</span>
-                <a
-                  href="https://your-live-demo.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Preview e-commerce project"
-                >
-                  <Icon icon="mdi:open-in-new" />
-                </a>
-              </div>
-            </div>
-
-            <div className="project-content">
-              <div className="project-meta">
-                <span className="project-type">Frontend Development</span>
-                <span className="project-number">02</span>
-              </div>
-
-              <h3>E-commerce Dashboard</h3>
-
-              <p>
-                A sleek dashboard interface with product management, interactive
-                components, and a responsive layout.
-              </p>
-
-              <div className="project-tags">
-                <span>React</span>
-                <span>Tailwind CSS</span>
-                <span>JavaScript</span>
-              </div>
-
-              <div className="project-actions">
-                <a
-                  href="https://your-live-demo.com"
-                  className="project-btn project-btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo
-                  <Icon icon="mdi:open-in-new" />
-                </a>
-
-                <a
-                  href="https://github.com/your-username/ecommerce-dashboard"
-                  className="project-btn project-btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon icon="mdi:github" />
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Project 03 */}
-          <Reveal className="project-card">
-            <div className="project-image">
-              <Image
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85"
-                alt="Firebase web application preview"
-                width={1000}
-                height={650}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-
-              <div className="project-image-overlay">
-                <span>03 / Featured Project</span>
-                <a
-                  href="https://your-live-demo.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Preview Firebase project"
-                >
-                  <Icon icon="mdi:open-in-new" />
-                </a>
-              </div>
-            </div>
-
-            <div className="project-content">
-              <div className="project-meta">
-                <span className="project-type">Full-Stack Development</span>
-                <span className="project-number">03</span>
-              </div>
-
-              <h3>Firebase Web Application</h3>
-
-              <p>
-                A dynamic web application with user authentication, database
-                integration, and a smooth user experience.
-              </p>
-
-              <div className="project-tags">
-                <span>JavaScript</span>
-                <span>Firebase</span>
-                <span>CSS</span>
-              </div>
-
-              <div className="project-actions">
-                <a
-                  href="https://your-live-demo.com"
-                  className="project-btn project-btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo
-                  <Icon icon="mdi:open-in-new" />
-                </a>
-
-                <a
-                  href="https://github.com/your-username/firebase-app"
-                  className="project-btn project-btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon icon="mdi:github" />
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          ))}
         </div>
 
         {/* Projects Footer */}

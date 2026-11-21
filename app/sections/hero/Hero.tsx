@@ -39,7 +39,7 @@ const Hero = () => {
           <div className="hero-actions">
             <a href="#projects" className="hero-btn primary-btn magnetic-btn">
               <span>Explore My Work</span>
-              <Icon icon="solar:arrow-up-right-bold" />
+              <Icon icon="ph:arrow-up-right-bold" />
             </a>
 
             <a href="#contact" className="hero-btn secondary-btn magnetic-btn">

@@ -11,7 +11,8 @@ const testimonials = [
       "Sumon delivered a clean and professional website. The design was modern, responsive, and exactly what I was looking for. Communication was smooth throughout the project.",
     name: "Client Name",
     role: "Business Owner",
-    image: "/images/testimonials/client-1.png",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces",
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ const testimonials = [
       "Great attention to detail and a strong understanding of frontend development. The final result was fast, user-friendly, and looked excellent on mobile devices.",
     name: "Client Name",
     role: "Startup Founder",
-    image: "/images/testimonials/client-2.png",
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
   },
   {
     id: 3,
@@ -27,7 +29,8 @@ const testimonials = [
       "Working with Sumon was a positive experience. He understood the requirements, suggested useful improvements, and created an impressive web experience.",
     name: "Client Name",
     role: "Project Collaborator",
-    image: "/images/testimonials/client-3.png",
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces",
   },
 ];
 

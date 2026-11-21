@@ -396,7 +396,7 @@
 
 .about-stats .stat-card:hover::before {
   opacity: 1;
-  animation: statBorderRotate 3s linear infinite;
+  animation: statBorderRotate 6s linear infinite;
 }
 
 /* Border rotation */
